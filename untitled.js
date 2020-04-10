@@ -1,10 +1,10 @@
-function repeatStringNumTimes(str, num) {
-    let answerStr = '';
-    while (num > 0) {
-        answerStr += str;
-        num--;
+function truncateString(str, num) {
+    if (str.length > num) {
+        return str.slice(0, num) + '...';
+    } else {
+        return str;
     }
-    return answerStr;
+
 }
 
-console.log(repeatStringNumTimes("abc", 3));
+console.log(truncateString("Absolutely Longer", 2));
