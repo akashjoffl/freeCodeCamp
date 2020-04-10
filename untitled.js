@@ -1,10 +1,13 @@
-function truncateString(str, num) {
-    if (str.length > num) {
-        return str.slice(0, num) + '...';
-    } else {
-        return str;
+function findElement(arr, func) {
+    let num = 0;
+    for (let i = 0; i < arr.length; i++) {
+        num = arr[i];
+        console.log('*', num);
+        if (func(num)) {
+            return num;
+        }
     }
-
+    return undefined;
 }
 
-console.log(truncateString("Absolutely Longer", 2));
+console.log(findElement([1, 2, 3, 4], num => num % 2 === 0));
