@@ -18,3 +18,5 @@ for (let propery in beagle) {
     prototypeProps.push(propery);
   }
 }
+
+// we just making a conditional statement to seperate ownProperty && prototypeProperty
