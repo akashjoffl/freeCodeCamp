@@ -1,11 +1,15 @@
-function House(numBedrooms) {
-  this.numBedrooms = numBedrooms;
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
 }
 
-// Only change code below this line
-let myHouse = new House(5);
-// creating new instance of the House constructor, 
-//calling it myHouse
+let canary = new Bird("Tweety");
+let ownProps = [];
 
-myHouse instanceof House;
-// verifying that it is an instance of House
+for (let property in canary) {
+  if (canary.hasOwnProperty(property)) {
+    ownProps.push(property);
+  }
+}
+
+console.log(ownProps)
