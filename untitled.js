@@ -1,8 +1,9 @@
-let dog = {
-    name: "Spot",
-    numLegs: 4
-};
-// Only change code below this line
+const dog = {
+  name: 'Spot',
+  numLegs: 4,
+  sayLegs: () => {
+    return `This dog has ${dog.numLegs} legs.`
+  }
+}
 
-console.log(dog.name);
-console.log(dog.numLegs);
+console.log(dog.sayLegs())
