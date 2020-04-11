@@ -1,22 +1,16 @@
 function Dog(name) {
   this.name = name;
 }
-
-Dog.prototype.numLegs = 4;
-console.log(Dog.numLegs);
-let beagle = new Dog("Snoopy");
-
-let ownProps = [];
-let prototypeProps = [];
+let Bronie = new Dog('Bronie');
+console.log(Bronie);
 
 // Only change code below this line
-
-for (let propery in beagle) {
-  if (beagle.hasOwnProperty(propery)) {
-    ownProps.push(propery);
+function joinDogFraternity(candidate) {
+  if (candidate.constructor === Dog) {
+    return true;
   } else {
-    prototypeProps.push(propery);
+    return false;
   }
 }
 
-// we just making a conditional statement to seperate ownProperty && prototypeProperty
+console.log(Bronie.constructor)
