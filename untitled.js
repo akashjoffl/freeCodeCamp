@@ -1,8 +1,11 @@
-function Dog(name, color) {
-  this.name = name;
-  this.color = color;
-  this.numLegs = 4;
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
 }
 
-let terrier = new Dog();
-// creates new constructor terrier using Dog
+// Only change code below this line
+let myHouse = new House(5);
+// creating new instance of the House constructor, 
+//calling it myHouse
+
+myHouse instanceof House;
+// verifying that it is an instance of House
