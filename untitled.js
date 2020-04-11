@@ -1,13 +1,18 @@
-function bouncer(arr) {
-    let newArray = [];
-    for (let i = 0; i < arr.length; i++) {
-        // listing all the inputs
-        console.log(arr[i]);
-        if (arr[i]) newArray.push(arr[i]);
-        //if arr[1] is true push it to newArray or return
-    }
+function getIndexToIns(arr, num) {
+    arr.push(num);
+    //console.log(arr);
+    // adding num array element into arr array
+    arr.sort(function (a, b) {
+        return a - b
+    });
+    console.log(arr);
+    // sorting array in order
 
-    return newArray;
+    let indexArray = arr.indexOf(num)
+    // finding and returning the index
+    return indexArray;
+
+
 }
 
-bouncer([7, "ate", "", false, 9]);
+console.log(getIndexToIns([5, 3, 20, 3], 5));
