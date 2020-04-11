@@ -1,15 +1,20 @@
-function Bird(name) {
+function Dog(name) {
   this.name = name;
-  this.numLegs = 2;
 }
 
-let canary = new Bird("Tweety");
-let ownProps = [];
+Dog.prototype.numLegs = 4;
+console.log(Dog.numLegs);
+let beagle = new Dog("Snoopy");
 
-for (let property in canary) {
-  if (canary.hasOwnProperty(property)) {
-    ownProps.push(property);
+let ownProps = [];
+let prototypeProps = [];
+
+// Only change code below this line
+
+for (let propery in beagle) {
+  if (beagle.hasOwnProperty(propery)) {
+    ownProps.push(propery);
+  } else {
+    prototypeProps.push(propery);
   }
 }
-
-console.log(ownProps)
