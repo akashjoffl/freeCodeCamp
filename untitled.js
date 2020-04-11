@@ -1,16 +1,16 @@
 function Dog(name) {
   this.name = name;
 }
-let Bronie = new Dog('Bronie');
-console.log(Bronie);
 
 // Only change code below this line
-function joinDogFraternity(candidate) {
-  if (candidate.constructor === Dog) {
-    return true;
-  } else {
-    return false;
+Dog.prototype = {
+  constructor: Dog,
+  // defining the constructor property
+  numLegs: 4,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+  describe: function () {
+    console.log("My name is " + this.name);
   }
-}
-
-console.log(Bronie.constructor)
+};
