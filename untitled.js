@@ -1,31 +1,17 @@
-function Cat (name) {
-  this.name = name
-}
-
-Cat.prototype = {
-  constructor: Cat
-}
-
-console.log(Cat())
-
-function Bear (name) {
-  this.name = name
-}
-
-Bear.prototype = {
-  constructor: Bear
-}
-
-function Animal () { }
+function Animal() { }
 
 Animal.prototype = {
-  constructor: Animal,
-  eat: function (eat) {
-    console.log('nom nom nom')
-  }
+    constructor: Animal,
+    eat: function () {
+        console.log("nom nom nom");
+    }
+};
 
-}
+function Dog() { }
 
-console.log(Animal.prototype)
-console.log(Cat.prototype)
-console.log(Bear.prototype)
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+console.log( beagle instanceof Dog);
+console.log(beagle instanceof Animal);
