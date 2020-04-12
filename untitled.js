@@ -1,9 +1,31 @@
-console.log(Array(16))
+function Cat (name) {
+  this.name = name
+}
 
-console.log(Array(16).join('wat'))
+Cat.prototype = {
+  constructor: Cat
+}
 
-console.log(Array(16).join('wat' + 1))
+console.log(Cat())
 
-console.log(Array(16).join('wat' - 1))
+function Bear (name) {
+  this.name = name
+}
 
-console.log(Array(16).join('wat' - 1) + ' Batman!')
+Bear.prototype = {
+  constructor: Bear
+}
+
+function Animal () { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function (eat) {
+    console.log('nom nom nom')
+  }
+
+}
+
+console.log(Animal.prototype)
+console.log(Cat.prototype)
+console.log(Bear.prototype)
