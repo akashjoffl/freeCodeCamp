@@ -1,10 +1,9 @@
-function Dog(name) {
-  this.name = name;
-}
+console.log(Array(16))
 
-let beagle = new Dog("Snoopy");
+console.log(Array(16).join('wat'))
 
-Dog.prototype.isPrototypeOf(beagle);  // yields true
+console.log(Array(16).join('wat' + 1))
 
-// Fix the code below so that it evaluates to true
-Object.prototype.isPrototypeOf(Dog.prototype);
+console.log(Array(16).join('wat' - 1))
+
+console.log(Array(16).join('wat' - 1) + ' Batman!')
