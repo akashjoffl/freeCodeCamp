@@ -1,15 +1,12 @@
-function Bird() {
-    let weight = 15;
-    // private method bird object can use
+(function () {
+    console.log("A cozy nest is ready");
+})();
 
-    this.getWeight = function () {
-        return weight;
-        // public available method bird object can use
-    }
+
+/* function makeNest() {
+  console.log("A cozy nest is ready");
 }
 
-let sparrow = new Bird();
-// declaring sparrow contect
+makeNest();
 
-console.log(sparrow.getWeight());
-// returns 15
+*/
