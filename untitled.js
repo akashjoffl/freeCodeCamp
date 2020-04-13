@@ -1,21 +1,29 @@
-function Bird() { }
+let bird = {
+    name: "Donald",
+    numLegs: 2
+};
 
-Bird.prototype.fly = function () { return "I am flying!"; };
-
-function Penguin() { }
-Penguin.prototype = Object.create(Bird.prototype);
-Penguin.prototype.constructor = Penguin;
+let boat = {
+    name: "Warrior",
+    type: "race-boat"
+};
 
 // Only change code below this line
-Penguin.prototype.fly = function () {
-    return 'Alas, this is a flightless bird.'
-}
-// modifying/ overriding the fly() method
+const glideMixin = (obj) => {
+    obj.glide = function () {
+        console.log('Test!!!');
+    }
+};
+
+// declaring a glideMixin variable that is a function.
 
 
-// Only change code above this line
+glideMixin(bird);
+glideMixin(boat);
 
-let penguin = new Penguin();
-console.log(penguin.fly());
-console.log(penguin.constructor);
-console.log(penguin instanceof Bird);
+//using the glideMixin on the bird and boat object to give it the glide method.
+
+
+bird.glide();
+boat.glide();
+// running the code
