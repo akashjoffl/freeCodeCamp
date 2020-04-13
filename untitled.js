@@ -25,5 +25,15 @@ let funModule = (function () {
 
 })();
 
+function Bird(name) {
+    this.name = name;
+}
+
+let sparrow = new Bird('Sparrow');
+
+funModule.singMixin(sparrow)
+
+console.log(sparrow);
+sparrow.sing();
 
 
