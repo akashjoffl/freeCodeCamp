@@ -1,29 +1,15 @@
-let bird = {
-    name: "Donald",
-    numLegs: 2
-};
+function Bird() {
+    let weight = 15;
+    // private method bird object can use
 
-let boat = {
-    name: "Warrior",
-    type: "race-boat"
-};
-
-// Only change code below this line
-const glideMixin = (obj) => {
-    obj.glide = function () {
-        console.log('Test!!!');
+    this.getWeight = function () {
+        return weight;
+        // public available method bird object can use
     }
-};
+}
 
-// declaring a glideMixin variable that is a function.
+let sparrow = new Bird();
+// declaring sparrow contect
 
-
-glideMixin(bird);
-glideMixin(boat);
-
-//using the glideMixin on the bird and boat object to give it the glide method.
-
-
-bird.glide();
-boat.glide();
-// running the code
+console.log(sparrow.getWeight());
+// returns 15
