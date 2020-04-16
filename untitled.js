@@ -4,12 +4,11 @@ var s = [23, 65, 98, 5];
 Array.prototype.myFilter = function (callback) {
     // Only change code below this line
     var newArray = [];
-    for (let i = 0; i < this.length; i++) {
-        // console.log(callback(this[i]))
-        if (callback(this[i])) {
-            newArray.push(this[i])
+    this.forEach(function (individualElement) {
+        if (callback(individualElement)) {
+            newArray.push(individualElement);
         }
-    }
+    })
     // Only change code above this line
     return newArray;
 
