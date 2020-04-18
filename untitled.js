@@ -1,13 +1,11 @@
-const squareList = (arr) => {
+function alphabeticalOrder(arr) {
     // Only change code below this line
-    let positiveIntegerSquared = arr.filter(num => {
-        if (Number.isInteger(num) && num > 0) return num;
-    }).map(num => { return num * num });
-    // filterMethod to find the positive integers, and using the output to .map() to find the map();
-
-    return positiveIntegerSquared;
+    return arr.sort(function (a, b) {
+        return a === b ? 0 : a > b ? 1 : -1;
+        // if (a === b) return 0;
+        // if (a > b) return 1;
+        // else return -1;
+    });
     // Only change code above this line
-};
-
-const squaredIntegers = squareList([-3, 4.8, 5, 3, -3.2]);
-console.log(squaredIntegers);
+}
+console.log(alphabeticalOrder(["a", "d", "c", "a", "z", "g"]));
