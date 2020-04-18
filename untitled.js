@@ -1,6 +1,6 @@
 function alphabeticalOrder(arr) {
     // Only change code below this line
-    return arr.sort(function (a, b) {
+    return arr.sort((a, b) => {
         return a === b ? 0 : a > b ? 1 : -1;
         // if (a === b) return 0;
         // if (a > b) return 1;
