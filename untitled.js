@@ -1,7 +1,7 @@
-var globalArray = [5, 6, 3, 2, 9];
-function nonMutatingSort(arr) {
+function splitify(str) {
     // Only change code below this line
-    return [...arr].sort();
+    return str.split(/\W/);
+
     // Only change code above this line
 }
-console.log(nonMutatingSort(globalArray));
+console.log(splitify("Hello World,I-am code"));
