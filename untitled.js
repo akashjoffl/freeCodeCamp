@@ -1,7 +1,8 @@
-function splitify(str) {
+function sentensify(str) {
     // Only change code below this line
-    return str.split(/\W/);
-
-    // Only change code above this line
+    let sentensifySplit = str.split(/\W/);
+    //console.log(sentensifySplit);
+    let sentensifyJoined = sentensifySplit.join(' ')
+    return sentensifyJoined;
 }
-console.log(splitify("Hello World,I-am code"));
+console.log(sentensify("The.force.is.strong.with.this.one"));
