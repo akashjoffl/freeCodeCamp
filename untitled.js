@@ -1,14 +1,10 @@
-// The global variable
-var globalTitle = "Winter Is Coming";
-
-// Only change code below this line
-function urlSlug(title) {
-  return title
-    .split(" ")
-    .filter(word => { if (word != "") return word; })
-    .join("-")
-    .toLowerCase();
-
+function checkPositive(arr) {
+  // Only change code below this line
+  let result = arr.every(function (value) {
+    console.log(value)
+    return value > 0;
+  });
+  return (result)
+  // Only change code above this line
 }
-// Only change code above this line
-console.log(urlSlug("Winter Is Coming"));
+console.log(checkPositive([1, 2, 3, 4, 5]));
