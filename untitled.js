@@ -1,10 +1,6 @@
 function checkPositive(arr) {
   // Only change code below this line
-  let result = arr.every(function (value) {
-    console.log(value)
-    return value > 0;
-  });
-  return (result)
+  return arr.every(value => { return value > 0 });
   // Only change code above this line
 }
 console.log(checkPositive([1, 2, 3, 4, 5]));
