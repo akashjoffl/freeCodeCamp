@@ -1,6 +1,11 @@
-function add(x) {
-  // Only change code below this line
-  return y => z => x + y + z
+function sumAll(arr) {
+  let minimumNumber = Math.min(arr[0], arr[1]);
+  let maximumNumber = Math.max(arr[0], arr[1]);
+  let result = 0;
+  for (let i = minimumNumber; i <= maximumNumber; i++) {
+    result += i;
+  }
+  return result;
 }
-// Only change code above this line
-console.log(add(10)(20)(30));
+
+console.log(sumAll([1, 4]));
