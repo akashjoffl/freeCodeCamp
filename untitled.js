@@ -1,10 +1,14 @@
-function sentensify(str) {
-    // Only change code below this line
+// The global variable
+var globalTitle = "Winter Is Coming";
 
-    return str.split(/\W/).join(' ');
-    // let sentensifySplit = str.split(/\W/);
-    // //console.log(sentensifySplit);
-    // let sentensifyJoined = sentensifySplit.join(' ')
-    // return sentensifyJoined;
+// Only change code below this line
+function urlSlug(title) {
+  return title
+    .split(" ")
+    .filter(word => { if (word != "") return word; })
+    .join("-")
+    .toLowerCase();
+
 }
-console.log(sentensify("The.force.is.strong.with.this.one"));
+// Only change code above this line
+console.log(urlSlug("Winter Is Coming"));
