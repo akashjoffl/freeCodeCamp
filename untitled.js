@@ -1,11 +1,18 @@
-function sumAll(arr) {
-  let minimumNumber = Math.min(arr[0], arr[1]);
-  let maximumNumber = Math.max(arr[0], arr[1]);
-  let result = 0;
-  for (let i = minimumNumber; i <= maximumNumber; i++) {
-    result += i;
+function diffArray(arr1, arr2) {
+  var newArr = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) === -1) {
+      newArr.push(arr1[i])
+    }
   }
-  return result;
+  for (let j = 0; j < arr2.length; j++) {
+    if (arr1.indexOf(arr2[j]) === -1) {
+      newArr.push(arr2[j])
+      console.log(arr2[j])
+    }
+  }
+  return newArr;
 }
 
-console.log(sumAll([1, 4]));
+console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"],
+  ["diorite", "andesite", "grass", "dirt", "dead shrub", "john cena"]));
