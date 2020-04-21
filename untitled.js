@@ -1,15 +1,16 @@
-function diffArray(arr1, arr2) {
-  var newArr = [];
+function destroyer(arr) {
+  let survivingElements = [];
+  let battleField = Object.values(arguments)[0];
+  let elementToDestroy = Object.values(arguments).splice(1);
 
-  function compareAgainstEachOther(first, second) {
-    first.forEach(number => {
-      if (second.indexOf(number) === -1) { newArr.push(number) }
-    })
+  for (let i = 0; i < battleField.length; i++) {
+    let positionToRecon = battleField[i];
+    if (elementToDestroy.indexOf(positionToRecon) === -1) {
+      survivingElements.push(positionToRecon);
+    }
   }
-  compareAgainstEachOther(arr1, arr2);
-  compareAgainstEachOther(arr2, arr1);
-  return newArr;
+  return survivingElements;
 }
 
-console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"],
-  ["diorite", "andesite", "grass", "dirt", "dead shrub", "john cena"]));
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+// [1, 1]
