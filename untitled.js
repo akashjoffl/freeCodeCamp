@@ -1,16 +1,13 @@
 function diffArray(arr1, arr2) {
   var newArr = [];
-  for (let i = 0; i < arr1.length; i++) {
-    if (arr2.indexOf(arr1[i]) === -1) {
-      newArr.push(arr1[i])
-    }
+
+  function compareAgainstEachOther(first, second) {
+    first.forEach(number => {
+      if (second.indexOf(number) === -1) { newArr.push(number) }
+    })
   }
-  for (let j = 0; j < arr2.length; j++) {
-    if (arr1.indexOf(arr2[j]) === -1) {
-      newArr.push(arr2[j])
-      console.log(arr2[j])
-    }
-  }
+  compareAgainstEachOther(arr1, arr2);
+  compareAgainstEachOther(arr2, arr1);
   return newArr;
 }
 
