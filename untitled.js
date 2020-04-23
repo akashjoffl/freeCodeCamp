@@ -1,28 +1,11 @@
-function whatIsInAName(collections, source) {
-  var matchingResult = [];
-  // Only change code below this line
-  collections.forEach(collection => {
-   console.log(collection)
-    let index = 0;
-    for (let key in source) {
-    //  console.log(collection[key]) //122 un 122
-      if (collection[key] === source[key]) {
-        index += 1;
-      }
-      if (index === Object.keys(source).length) {
-        matchingResult.push(collection);
-      }
-    }
-  })
-  // Only change code above this line
-  return matchingResult;
+function spinalCase(str) {
+  let camelCase = str.replace(/([a-z])([A-Z])/g, "$1 $2");
+  let spacesAndDashes = camelCase.replace(/\s|_/g, "-");
+  return spacesAndDashes.toLowerCase();
 }
 
-let result = whatIsInAName([
-  { "apple": 1, "bat": 2 }, 
-  { "bat": 2 }, 
-  { "apple": 1, "bat": 2, "cookie": 2 }
-    ], 
-  { "apple": 1, "bat": 2 })
+console.log(spinalCase('This Is Spinal Tap'));
 
-console.log(result);
+//  var spinal = str.replace(/(?!^)([A-Z])/g, ' $1')
+//                 .replace(/[_\s]+(?=[a-zA-Z])/g, '-').toLowerCase();
+//return spinal 
