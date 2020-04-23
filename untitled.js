@@ -1,11 +1,18 @@
-function spinalCase(str) {
-  let camelCase = str.replace(/([a-z])([A-Z])/g, "$1 $2");
-  let spacesAndDashes = camelCase.replace(/\s|_/g, "-");
-  return spacesAndDashes.toLowerCase();
+function translatePigLatin(str) {
+  let vowels = "aeioe".split("");
+
+  for (let i = 0; i < str.length; i++) {
+    let individualLetter = str[i]
+    if (vowels.indexOf(individualLetter) != -1 && i === 0) {
+      return str + "way";
+    }
+    if (vowels.indexOf(individualLetter) != -1) {
+      return str.slice(i) + str.slice(0, i) + "ay";
+    }
+  }
+  return str + "ay";
 }
 
-console.log(spinalCase('This Is Spinal Tap'));
+let result = translatePigLatin("california");
 
-//  var spinal = str.replace(/(?!^)([A-Z])/g, ' $1')
-//                 .replace(/[_\s]+(?=[a-zA-Z])/g, '-').toLowerCase();
-//return spinal 
+console.log(result);
