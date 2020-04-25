@@ -1,14 +1,14 @@
 function uniteUnique(collection) {
   let finalCollection = [];
-  let values = Object.values(arguments);  
-  console.log(values); 
-  for (let i = 0; i < values.length; i ++){
-    for (let j = 0; j < values[i].length; j ++) {
-      if(finalCollection.indexOf(values[i][j]) === -1) {
-        finalCollection.push(values[i][j]);
+  let values = Object.values(arguments);
+
+  values.forEach(groupOfGroups => {
+    groupOfGroups.forEach(individualValues => {
+      if (finalCollection.indexOf(individualValues) === -1) {
+        finalCollection.push(individualValues);
       }
-    }
-  }
+    });
+  });
   return finalCollection;
 }
 
