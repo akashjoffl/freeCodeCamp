@@ -1,25 +1,25 @@
-function myReplace(str, wordToSearchFor, wordToReplace) {
-  let stringCollection = str.split(" ");
+function pairElement(initialStrand) {
 
-  const isWordCapitalized = (word) => {
-    return word[0] === word[0].toUpperCase()
-  }
-
-    const capitalizeWord = (word) => {
-      return wordToReplace[0].toUpperCase() + word.slice(1);
+  function calculatePair(initial) {
+    if (initial === "A") {
+      return "T";
+    } else if (initial === "T") {
+      return "A";
+    } else if (initial === "G") {
+      return "C"
+    } else if (initial === "C") {
+      return "G";
     }
-    
-    return stringCollection.map(individualWord => {
-    if (individualWord === wordToSearchFor) {
-      if (isWordCapitalized(individualWord)) {
-        wordToReplace = capitalizeWord(wordToReplace); 
-      };
-      return wordToReplace;
-     }
-     return individualWord;
-  }).join(" ");
   }
 
-let result = myReplace("His name is Tom", "Tom", "john");
+  return initialStrand.split("").map(initialPair => {
+    let pair = [initialPair, calculatePair(initialPair)]
+    return pair;
+  });
+
+
+}
+
+let result = pairElement("ATCGA")
 
 console.log(result);
