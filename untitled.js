@@ -1,18 +1,24 @@
-function myReplace(str, before, after) {
+function myReplace(str, wordToSearchFor, wordToReplace) {
   let stringCollection = str.split(" ");
-  //console.log(stringCollection);
 
-  for (let i = 0; i < stringCollection.length; i++) {
-    if (stringCollection[i] === before) {
-      if (stringCollection[i][0] ===
-        stringCollection[i][0].toUpperCase()) {
-        after = after[0].toUpperCase() + after.slice(1)
-      };
-      stringCollection[i] = after;
-    }
+  const isWordCapitalized = (word) => {
+    return word[0] === word[0].toUpperCase()
   }
-  return stringCollection.join(" ");
-}
+
+    const capitalizeWord = (word) => {
+      return wordToReplace[0].toUpperCase() + word.slice(1);
+    }
+    
+    return stringCollection.map(individualWord => {
+    if (individualWord === wordToSearchFor) {
+      if (isWordCapitalized(individualWord)) {
+        wordToReplace = capitalizeWord(wordToReplace); 
+      };
+      return wordToReplace;
+     }
+     return individualWord;
+  }).join(" ");
+  }
 
 let result = myReplace("His name is Tom", "Tom", "john");
 
