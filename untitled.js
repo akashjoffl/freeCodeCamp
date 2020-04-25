@@ -1,17 +1,16 @@
-function fearNotLetter(str) {
-  let alphabet = "abcdefghijklmnopqrstuvwxyz";
-  let startingPosition = alphabet.indexOf(str[0]);
-  let focusedAlphabet = alphabet.slice(startingPosition);
-  console.log(focusedAlphabet);
-
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] != focusedAlphabet[i]) {
-      return focusedAlphabet[i];
+function uniteUnique(collection) {
+  let finalCollection = [];
+  let values = Object.values(arguments);  
+  console.log(values); 
+  for (let i = 0; i < values.length; i ++){
+    for (let j = 0; j < values[i].length; j ++) {
+      if(finalCollection.indexOf(values[i][j]) === -1) {
+        finalCollection.push(values[i][j]);
+      }
     }
   }
-  return undefined;
+  return finalCollection;
 }
 
-
-let result = fearNotLetter("stvwx");
+let result = uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 console.log(result);
