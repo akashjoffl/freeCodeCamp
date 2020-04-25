@@ -1,6 +1,6 @@
-function pairElement(initialStrand) {
+const pairElement = (initialStrand => {
 
-  function calculatePair(initial) {
+  const calculatePair = (initial => {
     if (initial === "A") {
       return "T";
     } else if (initial === "T") {
@@ -10,7 +10,7 @@ function pairElement(initialStrand) {
     } else if (initial === "C") {
       return "G";
     }
-  }
+  });
 
   return initialStrand.split("").map(initialPair => {
     let pair = [initialPair, calculatePair(initialPair)]
@@ -18,7 +18,7 @@ function pairElement(initialStrand) {
   });
 
 
-}
+});
 
 let result = pairElement("ATCGA")
 
