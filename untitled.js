@@ -1,25 +1,19 @@
-function translatePigLatin(str) {
-  let vowels = "aeioe".split("");
+function myReplace(str, before, after) {
+  let stringCollection = str.split(" ");
+  //console.log(stringCollection);
 
-  function isVowel(letter) {
-    return vowels.indexOf(letter);
-  }
-
-  for (let i = 0; i < str.length; i++) {
-    let individualLetter = str[i];
-
-    if (isVowel(individualLetter) != -1 && i === 0) {
-      return str + "way";
-    }
-    if (isVowel(individualLetter) != -1) {
-      return str.slice(i) + str.slice(0, i) + "ay";
+  for (let i = 0; i < stringCollection.length; i++) {
+    if (stringCollection[i] === before) {
+      if (stringCollection[i][0] ===
+        stringCollection[i][0].toUpperCase()) {
+        after = after[0].toUpperCase() + after.slice(1)
+      };
+      stringCollection[i] = after;
     }
   }
-
-
-  return str + "ay";
+  return stringCollection.join(" ");
 }
 
-let result = translatePigLatin("california");
+let result = myReplace("His name is Tom", "Tom", "john");
 
 console.log(result);
