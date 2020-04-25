@@ -1,25 +1,17 @@
-const pairElement = (initialStrand => {
+function fearNotLetter(str) {
+  let alphabet = "abcdefghijklmnopqrstuvwxyz";
+  let startingPosition = alphabet.indexOf(str[0]);
+  let focusedAlphabet = alphabet.slice(startingPosition);
+  console.log(focusedAlphabet);
 
-  const calculatePair = (initial => {
-    if (initial === "A") {
-      return "T";
-    } else if (initial === "T") {
-      return "A";
-    } else if (initial === "G") {
-      return "C"
-    } else if (initial === "C") {
-      return "G";
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] != focusedAlphabet[i]) {
+      return focusedAlphabet[i];
     }
-  });
-
-  return initialStrand.split("").map(initialPair => {
-    let pair = [initialPair, calculatePair(initialPair)]
-    return pair;
-  });
+  }
+  return undefined;
+}
 
 
-});
-
-let result = pairElement("ATCGA")
-
+let result = fearNotLetter("stvwx");
 console.log(result);
