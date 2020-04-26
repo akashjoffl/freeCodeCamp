@@ -1,23 +1,20 @@
+
+
 function sumFibs(num) {
   let fibonacciSequence = [0, 1];
+  let sumOfOddFibonacciNumbers = 1;
+  let counter = iterateFibonacciSequence(counter);
 
-  let counter = fibonacciSequence[fibonacciSequence.length - 2] +
-    fibonacciSequence[fibonacciSequence.length - 1]
-  while (counter <= num) {
-    fibonacciSequence.push(counter)
-    counter = fibonacciSequence[fibonacciSequence.length - 2] +
+  function iterateFibonacciSequence() {
+    return fibonacciSequence[fibonacciSequence.length - 2] +
       fibonacciSequence[fibonacciSequence.length - 1]
   }
-
-  let sumOfOddFibonacciNumbers = 0;
-
-  fibonacciSequence.forEach(function (num) {
-    if (num % 2 != 0) {
-      // console.log(sumOfOddFibonacciNumbers);
-      sumOfOddFibonacciNumbers += num;
-      console.log(sumOfOddFibonacciNumbers)
-    }
-  })
+  function isOdd(counter) { return counter % 2 != 0 }
+  while (counter <= num) {
+    fibonacciSequence.push(counter);
+    if (isOdd(counter)) { sumOfOddFibonacciNumbers += counter; }
+    counter = iterateFibonacciSequence(counter);
+  }
   return sumOfOddFibonacciNumbers;
 }
 
