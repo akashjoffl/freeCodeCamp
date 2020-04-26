@@ -1,22 +1,32 @@
+function sumPrimes(num) {
+  if (num <= 1) {
+    return "Numbers should be more than 1"
+  };
 
+  let counter = 2;
+  let sum = 0;
 
-function sumFibs(num) {
-  let fibonacciSequence = [0, 1];
-  let sumOfOddFibonacciNumbers = 1;
-  let counter = iterateFibonacciSequence(counter);
-
-  function iterateFibonacciSequence() {
-    return fibonacciSequence[fibonacciSequence.length - 2] +
-      fibonacciSequence[fibonacciSequence.length - 1]
-  }
-  function isOdd(counter) { return counter % 2 != 0 }
   while (counter <= num) {
-    fibonacciSequence.push(counter);
-    if (isOdd(counter)) { sumOfOddFibonacciNumbers += counter; }
-    counter = iterateFibonacciSequence(counter);
+    if (isPrime(counter)) {
+      sum += counter;
+    }
+    counter += 1;
   }
-  return sumOfOddFibonacciNumbers;
+  return sum;
 }
 
-let result = sumFibs(10);
+
+function isPrime(singleNumber) {
+  let counter = 2;
+  while (counter < singleNumber) {
+    if (singleNumber % counter === 0) {
+      return false;
+    }
+    counter += 1;
+  }
+  return true;
+}
+
+let result = sumPrimes(10);
 console.log(result);
+console.log(isPrime(977))
