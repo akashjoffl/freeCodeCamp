@@ -1,32 +1,48 @@
-function sumPrimes(num) {
-  if (num <= 1) {
-    return "Numbers should be more than 1"
-  };
-
-  let counter = 2;
-  let sum = 0;
-
-  while (counter <= num) {
-    if (isPrime(counter)) {
-      sum += counter;
-    }
-    counter += 1;
+function smallestCommons(arr) {
+  let lowerNum, higherNum;
+  if (arr[0] > arr[1]) {
+    lowerNum = arr[1];
+    higherNum = arr[0];
+  } else {
+    lowerNum = arr[0];
+    higherNum = arr[1];
   }
-  return sum;
+
+  // [1, 2, 3, 4]
+  let range = getRange(lowerNum, higherNum);
+  //console.log(range);
+  let multiple = 1;
+  while (multiple < 100000) {
+    let higherCommmonMultiple = ((lowerNum * multiple) * higherNum);
+    //console.log(higherCommmonMultiple)
+    let trueCount = 0;
+    for (let i = 0; i < range.length; i += 1) {
+      //console.log(higherCommmonMultiple, range)
+
+      if (higherCommmonMultiple % range[i] === 0) {
+        trueCount += 1;
+
+        // console.log("True Count -> ", trueCount, "Range Length -> ", range.length);
+        if (trueCount === range.length) {
+          return higherCommmonMultiple;
+        }
+      }
+    }
+
+    multiple += 1;
+  }
+
+  return arr;
+}
+
+function getRange(lowN, highN) {
+  let resultRange = [];
+  for (let i = lowN; i <= highN; i += 1) {
+    resultRange.push(i);
+  }
+  return resultRange
 }
 
 
-function isPrime(singleNumber) {
-  let counter = 2;
-  while (counter < singleNumber) {
-    if (singleNumber % counter === 0) {
-      return false;
-    }
-    counter += 1;
-  }
-  return true;
-}
-
-let result = sumPrimes(10);
+let result = smallestCommons([23, 18]);
 console.log(result);
-console.log(isPrime(977))
