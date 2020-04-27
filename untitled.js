@@ -1,28 +1,19 @@
 function smallestCommons(arr) {
-  let lowerNum, higherNum;
-  if (arr[0] > arr[1]) {
-    lowerNum = arr[1];
-    higherNum = arr[0];
-  } else {
-    lowerNum = arr[0];
-    higherNum = arr[1];
-  }
+  let lowerNum = Math.min(...arr);
+  let higherNum = Math.max(...arr);
 
-  // [1, 2, 3, 4]
   let range = getRange(lowerNum, higherNum);
-  //console.log(range);
+
   let multiple = 1;
   while (multiple < 100000) {
     let higherCommmonMultiple = ((lowerNum * multiple) * higherNum);
-    //console.log(higherCommmonMultiple)
+
     let trueCount = 0;
     for (let i = 0; i < range.length; i += 1) {
-      //console.log(higherCommmonMultiple, range)
 
       if (higherCommmonMultiple % range[i] === 0) {
         trueCount += 1;
 
-        // console.log("True Count -> ", trueCount, "Range Length -> ", range.length);
         if (trueCount === range.length) {
           return higherCommmonMultiple;
         }
