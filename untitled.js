@@ -1,39 +1,15 @@
-function smallestCommons(arr) {
-  let lowerNum = Math.min(...arr);
-  let higherNum = Math.max(...arr);
+function dropElements(arr, func) {
+  let result = [];
 
-  let range = getRange(lowerNum, higherNum);
-
-  let multiple = 1;
-  while (multiple < 100000) {
-    let higherCommmonMultiple = ((lowerNum * multiple) * higherNum);
-
-    let trueCount = 0;
-    for (let i = 0; i < range.length; i += 1) {
-
-      if (higherCommmonMultiple % range[i] === 0) {
-        trueCount += 1;
-
-        if (trueCount === range.length) {
-          return higherCommmonMultiple;
-        }
-      }
+  for (let i = 0; i < arr.length; i += 1) {
+    console.log(arr[i], func(arr[i]), arr.slice(i))
+    if (func(arr[i])) {
+      return arr.slice(i)
     }
-
-    multiple += 1;
   }
 
-  return arr;
+  return result;
 }
 
-function getRange(lowN, highN) {
-  let resultRange = [];
-  for (let i = lowN; i <= highN; i += 1) {
-    resultRange.push(i);
-  }
-  return resultRange
-}
-
-
-let result = smallestCommons([23, 18]);
+let result = dropElements([1, 2, 3, 4], function (n) { return n >= 3; });
 console.log(result);
