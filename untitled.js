@@ -2,28 +2,16 @@ function addTogether() {
 
   let firstArgument = arguments[0];
 
-
   if (arguments.length > 1) {
     let secondArgument = arguments[1];
-    if (
-      argumentCheck(firstArgument) !== undefined &&
-      argumentCheck(secondArgument) !== undefined) {
-      return firstArgument + secondArgument
-    } else {
-      return undefined;
-    }
+    return checkArgumentsIfValid(firstArgument, secondArgument);
+
   } else if (arguments.length === 1) {
     if (argumentCheck(firstArgument) === undefined) {
       return undefined;
     } else {
       return function (secondArgument) {
-        if (
-          argumentCheck(firstArgument) !== undefined &&
-          argumentCheck(secondArgument) !== undefined) {
-          return firstArgument + secondArgument
-        } else {
-          return undefined;
-        }
+        return checkArgumentsIfValid(firstArgument, secondArgument)
       }
     }
   }
@@ -37,5 +25,13 @@ function argumentCheck(argument) {
   }
 }
 
-let result = addTogether(2);
-console.log(result);
+function checkArgumentsIfValid(first, second) {
+  if (
+    argumentCheck(first) !== undefined &&
+    argumentCheck(second) !== undefined) {
+    return first + second
+  }
+}
+
+let sumThreeAnd = addTogether(3);
+console.log(sumThreeAnd(7));
