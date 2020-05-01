@@ -1,37 +1,33 @@
-function addTogether() {
+var Person = function (firstAndLast) {
+  // Complete the method below and implement the others similarly
 
-  let firstArgument = arguments[0];
+  this.getFullName = function () {
+    return firstAndLast;
+  };
 
-  if (arguments.length > 1) {
-    let secondArgument = arguments[1];
-    return checkArgumentsIfValid(firstArgument, secondArgument);
+  this.getFirstName = function () {
+    return firstAndLast.split(" ")[0];
+  };
 
-  } else if (arguments.length === 1) {
-    if (argumentCheck(firstArgument) === undefined) {
-      return undefined;
-    } else {
-      return function (secondArgument) {
-        return checkArgumentsIfValid(firstArgument, secondArgument)
-      }
-    }
+  this.getLastName = function () {
+    return firstAndLast.split(" ")[1];
+  };
+
+  this.setFullName = function (newFullName) {
+    return firstAndLast = newFullName;
+  };
+
+  this.setFirstName = function (newFirstName) {
+    return firstAndLast = newFirstName + " " + this.getLastName();
   }
-}
 
-function argumentCheck(argument) {
-  if (typeof argument === 'number') {
-    return argument;
-  } else {
-    return undefined;
+  this.setLastName = function (newLastName) {
+    return firstAndLast = this.getFirstName() + " " + newLastName;
   }
-}
 
-function checkArgumentsIfValid(first, second) {
-  if (
-    argumentCheck(first) !== undefined &&
-    argumentCheck(second) !== undefined) {
-    return first + second
-  }
-}
+  return firstAndLast;
+};
 
-let sumThreeAnd = addTogether(3);
-console.log(sumThreeAnd(7));
+var bob = new Person('Bob Ross');
+
+console.log(bob.getFullName());
