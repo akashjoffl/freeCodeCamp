@@ -1,20 +1,21 @@
 function rot13(str) {
   let decodedResult = "";
-  let alphabetStart = "abcdefghijklm".toUpperCase();
-  let alphabetEnd = "nopqrstuvwxyz".toUpperCase();
+  let alphabetStart = 'ABCDEFGHIJKLM';
+  let alphabetEnd = 'NOPQRSTUVWXYZ';
 
-  for (let i = 0; i < str.length; i += 1) {
-    let letterToDecode = str[i];
+  str.split("").forEach(function (letterToDecode) {
+    let alphabetStartIndex = alphabetStart.indexOf(letterToDecode);
+    let alphabetEndIndex = alphabetEnd.indexOf(letterToDecode);
 
-    if (alphabetStart.indexOf(letterToDecode) >= 0) {
-      decodedResult += alphabetEnd[alphabetStart.indexOf(letterToDecode)];
-    } else if (alphabetEnd.indexOf(letterToDecode) >= 0) {
-      decodedResult += alphabetStart[alphabetEnd.indexOf(letterToDecode)];
+    if (alphabetStartIndex >= 0) {
+      decodedResult += alphabetEnd[alphabetStartIndex];
+    } else if (alphabetEndIndex >= 0) {
+      decodedResult += alphabetStart[alphabetEndIndex];
     } else {
       decodedResult += letterToDecode;
     }
+  });
 
-  }
   return decodedResult;
 }
 
