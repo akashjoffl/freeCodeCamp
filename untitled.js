@@ -1,23 +1,29 @@
-function rot13(str) {
-  let decodedResult = "";
-  let alphabetStart = 'ABCDEFGHIJKLM';
-  let alphabetEnd = 'NOPQRSTUVWXYZ';
+function telephoneCheck(str) {
+  if (str.indexOf("(") === -1 && str.indexOf(")") > -1) {
+    return false;
+  }
 
-  str.split("").forEach(function (letterToDecode) {
-    let alphabetStartIndex = alphabetStart.indexOf(letterToDecode);
-    let alphabetEndIndex = alphabetEnd.indexOf(letterToDecode);
+  if (str[0] === "-") {
+    return false;
+  }
 
-    if (alphabetStartIndex >= 0) {
-      decodedResult += alphabetEnd[alphabetStartIndex];
-    } else if (alphabetEndIndex >= 0) {
-      decodedResult += alphabetStart[alphabetEndIndex];
-    } else {
-      decodedResult += letterToDecode;
-    }
-  });
+  if (str.indexOf(")") - str.indexOf("(") >= 5) {
+    return false;
+  }
 
-  return decodedResult;
+  let polishedPhone = str.replace(/-| /g, "");
+  if (polishedPhone.indexOf("(") < polishedPhone.indexOf(")")) {
+    polishedPhone = polishedPhone.replace(/\(|\)/g, "");
+  }
+  console.log(polishedPhone);
+
+  if (polishedPhone.length === 10) {
+    return true;
+  } else if (polishedPhone.length === 11 && polishedPhone[0] === "1") {
+    return true;
+  }
+  return false;
 }
 
-let result = rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.");
+let result = telephoneCheck("-1 (757) 622-7382")
 console.log(result);
